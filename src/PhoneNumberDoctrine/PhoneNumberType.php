@@ -5,7 +5,6 @@ namespace Nepada\PhoneNumberDoctrine;
 
 use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberFormat;
-use Brick\PhoneNumber\PhoneNumberParseException;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 use libphonenumber\PhoneNumberUtil;
@@ -24,7 +23,6 @@ class PhoneNumberType extends StringType
      * @param mixed $value
      * @param AbstractPlatform $platform
      * @return PhoneNumber|null
-     * @throws PhoneNumberParseException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?PhoneNumber
     {
@@ -43,7 +41,6 @@ class PhoneNumberType extends StringType
      * @param mixed $value
      * @param AbstractPlatform $platform
      * @return string|null
-     * @throws PhoneNumberParseException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {

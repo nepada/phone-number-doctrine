@@ -8,7 +8,6 @@ parameters:
     exceptionRules:
         checkedExceptions:
             - RuntimeException
-            - Brick\PhoneNumber\PhoneNumberException
         ignoredExceptions:
             - LogicException
             - Nette\InvalidStateException
