@@ -33,7 +33,10 @@ class PhoneNumberTypeTest extends TestCase
 
         Type::addType(PhoneNumberType::NAME, PhoneNumberType::class);
 
-        $this->type = Type::getType(PhoneNumberType::NAME);
+        /** @var PhoneNumberType $type */
+        $type = Type::getType(PhoneNumberType::NAME);
+        Assert::type(PhoneNumberType::class, $type);
+        $this->type = $type;
 
         $this->platform = \Mockery::mock(AbstractPlatform::class);
     }

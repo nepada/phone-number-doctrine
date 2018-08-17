@@ -13,3 +13,7 @@ parameters:
     excludes_analyse:
         - %currentWorkingDirectory%/tests/bootstrap.php
         - %currentWorkingDirectory%/tests/temp/*
+
+    ignoreErrors:
+        - '#Parameter \#2 \$className of static method Doctrine\\DBAL\\Types\\Type::overrideType\(\) expects string, null given#' # intended test behavior
+        - '#Call to an undefined method Mockery\\CompositeExpectation::with\(\)#' # false positive
