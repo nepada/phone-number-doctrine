@@ -20,7 +20,7 @@
         "brick/phonenumber": "^0.2@dev"
     },
     "require-dev": {
-        "nette/tester": "^2.0",
+        "nette/tester": "^2.1",
         "mockery/mockery": "^1.1"
     },
     "autoload": {
