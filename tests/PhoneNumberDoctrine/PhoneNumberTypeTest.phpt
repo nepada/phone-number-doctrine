@@ -4,8 +4,8 @@ declare(strict_types = 1);
 namespace NepadaTests\PhoneNumberDoctrine;
 
 use Brick\PhoneNumber\PhoneNumber;
-use Brick\PhoneNumber\PhoneNumberParseException;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 use Mockery\MockInterface;
 use Nepada\PhoneNumberDoctrine\PhoneNumberType;
@@ -64,7 +64,8 @@ class PhoneNumberTypeTest extends TestCase
             function (): void {
                 $this->type->convertToDatabaseValue('foo', $this->platform);
             },
-            PhoneNumberParseException::class
+            ConversionException::class,
+            'Could not convert PHP value \'foo\' of type \'string\' to type \'phone_number\'. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string'
         );
     }
 
@@ -105,7 +106,8 @@ class PhoneNumberTypeTest extends TestCase
             function (): void {
                 $this->type->convertToPHPValue('foo', $this->platform);
             },
-            PhoneNumberParseException::class
+            ConversionException::class,
+            'Could not convert database value "foo" to Doctrine Type phone_number'
         );
     }
 

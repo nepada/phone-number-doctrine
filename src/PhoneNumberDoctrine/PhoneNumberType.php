@@ -6,6 +6,7 @@ namespace Nepada\PhoneNumberDoctrine;
 use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberFormat;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\StringType;
 use libphonenumber\PhoneNumberUtil;
 
@@ -34,7 +35,11 @@ class PhoneNumberType extends StringType
             return $value;
         }
 
-        return PhoneNumber::parse($value);
+        try {
+            return PhoneNumber::parse($value);
+        } catch (\Throwable $exception) {
+            throw ConversionException::conversionFailed($value, $this->getName());
+        }
     }
 
     /**
@@ -49,7 +54,11 @@ class PhoneNumberType extends StringType
         }
 
         if (!$value instanceof PhoneNumber) {
-            $value = PhoneNumber::parse($value);
+            try {
+                $value = PhoneNumber::parse($value);
+            } catch (\Throwable $exception) {
+                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', PhoneNumber::class, 'phone number string']);
+            }
         }
 
         return $value->format(PhoneNumberFormat::E164);
