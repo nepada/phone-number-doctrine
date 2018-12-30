@@ -127,7 +127,6 @@ class PhoneNumberTypeTest extends TestCase
         }
     }
 
-
     /**
      * @return mixed[]
      */
