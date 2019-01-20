@@ -15,5 +15,6 @@ parameters:
         - %currentWorkingDirectory%/tests/temp/*
 
     ignoreErrors:
-        - '#Parameter \#2 \$className of static method Doctrine\\DBAL\\Types\\Type::overrideType\(\) expects string, null given#' # intended test behavior
-        - '#Call to an undefined method Mockery\\CompositeExpectation::with\(\)#' # false positive
+        -
+            message: '#Parameter \#2 \$className of static method Doctrine\\DBAL\\Types\\Type::overrideType\(\) expects string, null given#' # intended test behavior
+            path: %currentWorkingDirectory%/tests/PhoneNumberDoctrine/PhoneNumberTypeTest.phpt
