@@ -31,7 +31,12 @@ class PhoneNumberTypeTest extends TestCase
     {
         parent::setUp();
 
-        Type::addType(PhoneNumberType::NAME, PhoneNumberType::class);
+        if (Type::hasType(PhoneNumberType::NAME)) {
+            Type::overrideType(PhoneNumberType::NAME, PhoneNumberType::class);
+
+        } else {
+            Type::addType(PhoneNumberType::NAME, PhoneNumberType::class);
+        }
 
         /** @var PhoneNumberType $type */
         $type = Type::getType(PhoneNumberType::NAME);
@@ -39,13 +44,6 @@ class PhoneNumberTypeTest extends TestCase
         $this->type = $type;
 
         $this->platform = \Mockery::mock(AbstractPlatform::class);
-    }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        Type::overrideType(PhoneNumberType::NAME, null);
     }
 
     public function testGetName(): void
