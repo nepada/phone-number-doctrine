@@ -53,7 +53,7 @@ class PhoneNumberType extends StringType
             return $value;
         }
 
-        if (!$value instanceof PhoneNumber) {
+        if (! $value instanceof PhoneNumber) {
             try {
                 $value = PhoneNumber::parse($value);
             } catch (\Throwable $exception) {
