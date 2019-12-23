@@ -21,11 +21,10 @@ require_once __DIR__ . '/../bootstrap.php';
 class PhoneNumberTypeTest extends TestCase
 {
 
-    /** @var PhoneNumberType */
-    private $type;
+    private PhoneNumberType $type;
 
     /** @var AbstractPlatform|MockInterface */
-    private $platform;
+    private AbstractPlatform $platform;
 
     protected function setUp(): void
     {
