@@ -62,7 +62,7 @@ class PhoneNumberTypeTest extends TestCase
                 $this->type->convertToDatabaseValue('foo', $this->platform);
             },
             ConversionException::class,
-            'Could not convert PHP value \'foo\' of type \'string\' to type \'phone_number\'. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string'
+            'Could not convert PHP value \'foo\' of type \'string\' to type \'phone_number\'. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string',
         );
     }
 
@@ -104,7 +104,7 @@ class PhoneNumberTypeTest extends TestCase
                 $this->type->convertToPHPValue('foo', $this->platform);
             },
             ConversionException::class,
-            'Could not convert database value "foo" to Doctrine Type phone_number'
+            'Could not convert database value "foo" to Doctrine Type phone_number',
         );
     }
 
