@@ -1,6 +1,6 @@
 includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/damejidlo/phpstan-nette-tester/extension.neon
+    - vendor/nepada/phpstan-nette-tester/extension.neon
     - vendor/phpstan/phpstan-mockery/extension.neon
 
 parameters:
