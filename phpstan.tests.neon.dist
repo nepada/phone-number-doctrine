@@ -2,6 +2,7 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/nepada/phpstan-nette-tester/extension.neon
     - vendor/phpstan/phpstan-mockery/extension.neon
+    - tests/phpstan/disallowed-calls-rules.neon
 
 parameters:
     level: max

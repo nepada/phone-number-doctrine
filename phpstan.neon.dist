@@ -1,6 +1,7 @@
 includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/pepakriz/phpstan-exception-rules/extension.neon
+    - tests/phpstan/disallowed-calls-rules.neon
 
 parameters:
     level: max
