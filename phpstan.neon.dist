@@ -13,3 +13,11 @@ parameters:
             - LogicException
             - Doctrine\DBAL\Types\ConversionException
             - Nette\InvalidStateException
+
+    ignoreErrors:
+        -
+            message: '#Parameter \#1 \$value .* of method Nepada\\PhoneNumberDoctrine\\PhoneNumberType::convertToPHPValue\(\) should be contravariant with parameter \$value .* of method Doctrine\\DBAL\\Types\\Type::convertToPHPValue\(\)#'
+            path: src/PhoneNumberDoctrine/PhoneNumberType.php
+        -
+            message: '#Parameter \#1 \$value .* of method Nepada\\PhoneNumberDoctrine\\PhoneNumberType::convertToDatabaseValue\(\) should be contravariant with parameter \$value .* of method Doctrine\\DBAL\\Types\\Type::convertToDatabaseValue\(\)#'
+            path: src/PhoneNumberDoctrine/PhoneNumberType.php

@@ -21,7 +21,7 @@ class PhoneNumberType extends StringType
     }
 
     /**
-     * @param mixed $value
+     * @param PhoneNumber|string|null $value
      * @param AbstractPlatform $platform
      * @return PhoneNumber|null
      */
@@ -43,7 +43,7 @@ class PhoneNumberType extends StringType
     }
 
     /**
-     * @param mixed $value
+     * @param PhoneNumber|string|null $value
      * @param AbstractPlatform $platform
      * @return string|null
      */
