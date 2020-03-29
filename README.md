@@ -24,11 +24,12 @@ Register the type in your bootstrap:
 );
 ```
 
-In Nette with [kdyby/doctrine](https://github.com/Kdyby/Doctrine) integration, you can register the types in your configuration:
+In Nette with [nettrine/dbal](https://github.com/nettrine/dbal) integration, you can register the types in your configuration:
 ```yaml
-doctrine:
-    types:
-        phone_number: Nepada\PhoneNumberDoctrine\PhoneNumberType
+dbal:
+    connection:
+        types:
+            phone_number: Nepada\PhoneNumberDoctrine\PhoneNumberType
 
 ```  
 
