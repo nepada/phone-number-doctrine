@@ -31,7 +31,7 @@ dbal:
         types:
             phone_number: Nepada\PhoneNumberDoctrine\PhoneNumberType
 
-```  
+```
 
 
 Usage
@@ -46,16 +46,12 @@ use Brick\PhoneNumber\PhoneNumber;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="contacts")
  */
 class Contact
 {
 
-    /**
-     * @ORM\Column(type="phone_number", nullable=false)
-     * @var PhoneNumber
-     */
-    private $phoneNumber;
+    /** @ORM\Column(type="phone_number", nullable=false) */
+    private PhoneNumber $phoneNumber;
 
     public function getPhoneNumber(): PhoneNumber
     {
