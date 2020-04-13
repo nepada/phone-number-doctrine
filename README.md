@@ -29,9 +29,7 @@ In Nette with [nettrine/dbal](https://github.com/nettrine/dbal) integration, you
 dbal:
     connection:
         types:
-            phone_number:
-                class: Nepada\PhoneNumberDoctrine\PhoneNumberType
-                commented: false
+            phone_number: Nepada\PhoneNumberDoctrine\PhoneNumberType
 ```
 
 
