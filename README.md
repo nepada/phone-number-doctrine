@@ -17,10 +17,10 @@ $ composer require nepada/phone-number-doctrine
 ```
 
 Register the type in your bootstrap:
-``` php
+```php
 \Doctrine\DBAL\Types\Type::addType(
-    \Nepada\PhonNumberDoctrine\PhonNumberType::NAME,
-    \Nepada\PhonNumberDoctrine\PhonNumberType::class
+    \Nepada\PhoneNumberDoctrine\PhoneNumberType::NAME,
+    \Nepada\PhoneNumberDoctrine\PhoneNumberType::class
 );
 ```
 
@@ -39,7 +39,7 @@ Usage
 `PhoneNumberType` maps database value to phone number value object (see [brick/phonenumber](https://github.com/brick/phonenumber) for further details) and back. The phone number is stored using E164 format, i.e. a '+' sign followed by a series of digits comprising the country code and national number.
 
 Example usage in the entity:
-``` php
+```php
 use Doctrine\ORM\Mapping as ORM;
 use Brick\PhoneNumber\PhoneNumber;
 
