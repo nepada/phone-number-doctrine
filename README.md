@@ -19,7 +19,7 @@ $ composer require nepada/phone-number-doctrine
 Register the type in your bootstrap:
 ```php
 \Doctrine\DBAL\Types\Type::addType(
-    \Nepada\PhoneNumberDoctrine\PhoneNumberType::NAME,
+    \Brick\PhoneNumber\PhoneNumber::class,
     \Nepada\PhoneNumberDoctrine\PhoneNumberType::class
 );
 ```
@@ -29,7 +29,7 @@ In Nette with [nettrine/dbal](https://github.com/nettrine/dbal) integration, you
 dbal:
     connection:
         types:
-            phone_number: Nepada\PhoneNumberDoctrine\PhoneNumberType
+            Brick\PhoneNumber\PhoneNumber: Nepada\PhoneNumberDoctrine\PhoneNumberType
 ```
 
 
@@ -49,7 +49,7 @@ use Brick\PhoneNumber\PhoneNumber;
 class Contact
 {
 
-    /** @ORM\Column(type="phone_number", nullable=false) */
+    /** @ORM\Column(type=PhoneNumber::class, nullable=false) */
     private PhoneNumber $phoneNumber;
 
     public function getPhoneNumber(): PhoneNumber
@@ -66,7 +66,7 @@ $result = $repository->createQueryBuilder('foo')
     ->select('foo')
     ->where('foo.phoneNumber = :phoneNumber')
      // the parameter value is automatically normalized to +420123456789
-    ->setParameter('phoneNumber', '+420 123 456 789', PhoneNumberType::NAME)
+    ->setParameter('phoneNumber', '+420 123 456 789', \Brick\PhoneNumber\PhoneNumber::class)
     ->getQuery()
-    ->getResult()
+    ->getResult();
 ```

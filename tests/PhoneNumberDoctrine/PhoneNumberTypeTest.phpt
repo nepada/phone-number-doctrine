@@ -30,15 +30,15 @@ class PhoneNumberTypeTest extends TestCase
     {
         parent::setUp();
 
-        if (Type::hasType(PhoneNumberType::NAME)) {
-            Type::overrideType(PhoneNumberType::NAME, PhoneNumberType::class);
+        if (Type::hasType(PhoneNumber::class)) {
+            Type::overrideType(PhoneNumber::class, PhoneNumberType::class);
 
         } else {
-            Type::addType(PhoneNumberType::NAME, PhoneNumberType::class);
+            Type::addType(PhoneNumber::class, PhoneNumberType::class);
         }
 
         /** @var PhoneNumberType $type */
-        $type = Type::getType(PhoneNumberType::NAME);
+        $type = Type::getType(PhoneNumber::class);
         Assert::type(PhoneNumberType::class, $type);
         $this->type = $type;
 
@@ -47,7 +47,7 @@ class PhoneNumberTypeTest extends TestCase
 
     public function testGetName(): void
     {
-        Assert::same('phone_number', $this->type->getName());
+        Assert::same(PhoneNumber::class, $this->type->getName());
     }
 
     public function testRequiresSQLCommentHint(): void
@@ -62,7 +62,10 @@ class PhoneNumberTypeTest extends TestCase
                 $this->type->convertToDatabaseValue('foo', $this->platform);
             },
             ConversionException::class,
-            'Could not convert PHP value \'foo\' of type \'string\' to type \'phone_number\'. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string',
+            sprintf(
+                'Could not convert PHP value \'foo\' of type \'string\' to type \'%s\'. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string',
+                PhoneNumber::class,
+            ),
         );
     }
 
@@ -104,7 +107,7 @@ class PhoneNumberTypeTest extends TestCase
                 $this->type->convertToPHPValue('foo', $this->platform);
             },
             ConversionException::class,
-            'Could not convert database value "foo" to Doctrine Type phone_number',
+            sprintf('Could not convert database value "foo" to Doctrine Type %s', PhoneNumber::class),
         );
     }
 

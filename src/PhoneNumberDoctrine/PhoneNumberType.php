@@ -13,11 +13,9 @@ use libphonenumber\PhoneNumberUtil;
 class PhoneNumberType extends StringType
 {
 
-    public const NAME = 'phone_number';
-
     public function getName(): string
     {
-        return static::NAME;
+        return PhoneNumber::class;
     }
 
     /**
