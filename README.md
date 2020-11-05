@@ -1,7 +1,7 @@
 Phone number Doctrine type
 ===========================
 
-[![Build Status](https://travis-ci.org/nepada/phone-number-doctrine.svg?branch=master)](https://travis-ci.org/nepada/phone-number-doctrine)
+[![Build Status](https://github.com/nepada/phone-number-doctrine/workflows/CI/badge.svg)](https://github.com/nepada/phone-number-doctrine/actions?query=workflow%3ACI+branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/nepada/phone-number-doctrine/badge.svg?branch=master)](https://coveralls.io/github/nepada/phone-number-doctrine?branch=master)
 [![Downloads this Month](https://img.shields.io/packagist/dm/nepada/phone-number-doctrine.svg)](https://packagist.org/packages/nepada/phone-number-doctrine)
 [![Latest stable](https://img.shields.io/packagist/v/nepada/phone-number-doctrine.svg)](https://packagist.org/packages/nepada/phone-number-doctrine)
