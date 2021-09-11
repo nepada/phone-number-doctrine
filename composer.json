@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=7.4.0",
-        "doctrine/dbal": "^2.6@dev",
+        "doctrine/dbal": "^2.6@dev || ^3.0@dev",
         "brick/phonenumber": "^0.2@dev || ^0.3@dev || ^0.4@dev"
     },
     "require-dev": {

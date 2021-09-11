@@ -65,7 +65,7 @@ class PhoneNumberTypeTest extends TestCase
             },
             ConversionException::class,
             sprintf(
-                'Could not convert PHP value \'foo\' of type \'string\' to type \'%s\'. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string',
+                'Could not convert PHP value \'foo\'%%a?%% to type %%S?%%%s%%S?%%. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string',
                 PhoneNumber::class,
             ),
         );
