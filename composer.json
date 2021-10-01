@@ -23,7 +23,7 @@
         "nette/tester": "2.4.1",
         "mockery/mockery": "1.4.4",
         "phpstan/phpstan": "0.12.97",
-        "phpstan/phpstan-strict-rules": "0.12.10",
+        "phpstan/phpstan-strict-rules": "0.12.11",
         "pepakriz/phpstan-exception-rules": "0.11.7",
         "nepada/phpstan-nette-tester": "0.3.1",
         "spaze/phpstan-disallowed-calls": "1.9.0",
