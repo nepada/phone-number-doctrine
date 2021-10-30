@@ -12,3 +12,5 @@ updates:
     open-pull-requests-limit: 10
     allow:
       - dependency-type: "development"
+    ignore:
+      - dependency-name: "giggsey/libphonenumber-for-php"
