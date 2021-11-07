@@ -73,7 +73,7 @@ class PhoneNumberTypeTest extends TestCase
 
     /**
      * @dataProvider getDataForConvertToDatabaseValue
-     * @param mixed $value
+     * @param PhoneNumber|string|null $value
      * @param string|null $expected
      */
     public function testConvertToDatabaseValueSucceeds($value, ?string $expected): void
@@ -115,7 +115,7 @@ class PhoneNumberTypeTest extends TestCase
 
     /**
      * @dataProvider getDataForConvertToPHPValue
-     * @param mixed $value
+     * @param PhoneNumber|string|null $value
      * @param PhoneNumber|null $expected
      */
     public function testConvertToPHPValueSucceeds($value, ?PhoneNumber $expected): void
