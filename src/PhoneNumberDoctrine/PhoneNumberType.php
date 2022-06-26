@@ -36,7 +36,7 @@ class PhoneNumberType extends StringType
         try {
             return PhoneNumber::parse($value);
         } catch (\Throwable $exception) {
-            throw ConversionException::conversionFailed($value, $this->getName());
+            throw ConversionException::conversionFailed($value, $this->getName(), $exception);
         }
     }
 
@@ -55,7 +55,7 @@ class PhoneNumberType extends StringType
             try {
                 $value = PhoneNumber::parse($value);
             } catch (\Throwable $exception) {
-                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', PhoneNumber::class, 'phone number string']);
+                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', PhoneNumber::class, 'phone number string'], $exception);
             }
         }
 
