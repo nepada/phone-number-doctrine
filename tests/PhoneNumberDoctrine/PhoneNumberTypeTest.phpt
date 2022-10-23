@@ -39,7 +39,6 @@ class PhoneNumberTypeTest extends TestCase
             Type::addType(PhoneNumber::class, PhoneNumberType::class);
         }
 
-        /** @var PhoneNumberType $type */
         $type = Type::getType(PhoneNumber::class);
         Assert::type(PhoneNumberType::class, $type);
         $this->type = $type;
