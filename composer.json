@@ -17,7 +17,7 @@
     "require": {
         "php": ">=7.4.0 <8.3",
         "doctrine/dbal": "^2.13.3@dev || ^3.0@dev",
-        "brick/phonenumber": "^0.2@dev || ^0.3@dev || ^0.4@dev"
+        "brick/phonenumber": "^0.2@dev || ^0.3@dev || ^0.4@dev || ^0.5@dev"
     },
     "require-dev": {
         "nette/tester": "2.4.3",
