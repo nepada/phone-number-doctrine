@@ -20,10 +20,8 @@ class PhoneNumberType extends StringType
 
     /**
      * @param PhoneNumber|string|null $value
-     * @param AbstractPlatform $platform
-     * @return PhoneNumber|null
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?PhoneNumber
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?PhoneNumber
     {
         if ($value === null) {
             return $value;
@@ -42,10 +40,8 @@ class PhoneNumberType extends StringType
 
     /**
      * @param PhoneNumber|string|null $value
-     * @param AbstractPlatform $platform
-     * @return string|null
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
     {
         if ($value === null) {
             return $value;
@@ -74,8 +70,6 @@ class PhoneNumberType extends StringType
 
     /**
      * @param mixed[] $fieldDeclaration
-     * @param AbstractPlatform $platform
-     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
