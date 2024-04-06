@@ -40,16 +40,15 @@ Usage
 
 Example usage in the entity:
 ```php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
 use Brick\PhoneNumber\PhoneNumber;
 
-/**
- * @ORM\Entity
- */
+#[Entity]
 class Contact
 {
 
-    /** @ORM\Column(type=PhoneNumber::class, nullable=false) */
+    #[Column(type: PhoneNumber::class, nullable: false)]
     private PhoneNumber $phoneNumber;
 
     public function getPhoneNumber(): PhoneNumber
