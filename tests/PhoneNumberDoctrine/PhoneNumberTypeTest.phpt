@@ -64,7 +64,7 @@ class PhoneNumberTypeTest extends TestCase
             },
             ConversionException::class,
             sprintf(
-                'Could not convert PHP value \'foo\'%%a?%% to type %%S?%%%s%%S?%%. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string',
+                'Could not convert PHP value \'foo\'%%a?%% to type %%S?%%%s%%S?%%. Expected one of the following types: null, Brick\PhoneNumber\PhoneNumber, phone number string%%S?%%',
                 PhoneNumber::class,
             ),
         );
@@ -106,7 +106,7 @@ class PhoneNumberTypeTest extends TestCase
                 $this->type->convertToPHPValue('foo', $this->platform);
             },
             ConversionException::class,
-            sprintf('Could not convert database value "foo" to Doctrine Type %s', PhoneNumber::class),
+            sprintf('Could not convert database value "foo" to Doctrine Type %%S?%%%s%%S?%%', PhoneNumber::class),
         );
     }
 
@@ -147,7 +147,7 @@ class PhoneNumberTypeTest extends TestCase
 
     public function testGetSQLDeclaration(): void
     {
-        $this->platform->shouldReceive('getVarcharTypeDeclarationSQL')->with(['length' => 21])->andReturn('MOCKVARCHAR');
+        $this->platform->shouldReceive('getStringTypeDeclarationSQL')->with(['length' => 21])->andReturn('MOCKVARCHAR');
         $declaration = $this->type->getSQLDeclaration(['length' => 255], $this->platform);
         Assert::same('MOCKVARCHAR', $declaration);
     }

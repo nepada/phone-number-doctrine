@@ -7,12 +7,18 @@ use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberFormat;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
+use Doctrine\DBAL\Types\Exception\InvalidType;
+use Doctrine\DBAL\Types\Exception\ValueNotConvertible;
 use Doctrine\DBAL\Types\StringType;
 use libphonenumber\PhoneNumberUtil;
+use function class_exists;
 
 class PhoneNumberType extends StringType
 {
 
+    /**
+     * @deprecated Kept for DBAL 3.x compatibility
+     */
     public function getName(): string
     {
         return PhoneNumber::class;
@@ -34,7 +40,9 @@ class PhoneNumberType extends StringType
         try {
             return PhoneNumber::parse($value);
         } catch (\Throwable $exception) {
-            throw ConversionException::conversionFailed($value, $this->getName(), $exception);
+            throw class_exists(ValueNotConvertible::class)
+                ? ValueNotConvertible::new($value, $this->getName(), null, $exception)
+                : throw ConversionException::conversionFailed($value, $this->getName(), $exception);
         }
     }
 
@@ -51,18 +59,26 @@ class PhoneNumberType extends StringType
             try {
                 $value = PhoneNumber::parse($value);
             } catch (\Throwable $exception) {
-                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', PhoneNumber::class, 'phone number string'], $exception);
+                throw class_exists(InvalidType::class)
+                    ? InvalidType::new($value, $this->getName(), ['null', PhoneNumber::class, 'phone number string'], $exception)
+                    : ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', PhoneNumber::class, 'phone number string'], $exception);
             }
         }
 
         return $value->format(PhoneNumberFormat::E164);
     }
 
+    /**
+     * @deprecated Kept for DBAL 3.x compatibility
+     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
     }
 
+    /**
+     * @deprecated Kept for DBAL 3.x compatibility
+     */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
         return 1 + PhoneNumberUtil::MAX_LENGTH_COUNTRY_CODE + PhoneNumberUtil::MAX_LENGTH_FOR_NSN;
@@ -74,7 +90,7 @@ class PhoneNumberType extends StringType
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         $fieldDeclaration['length'] = $this->getDefaultLength($platform);
-        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
+        return parent::getSQLDeclaration($fieldDeclaration, $platform);
     }
 
 }
