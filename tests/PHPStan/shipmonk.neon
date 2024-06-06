@@ -5,12 +5,9 @@ parameters:
     shipmonkRules:
         allowComparingOnlyComparableTypes:
             enabled: false
-        allowNamedArgumentOnlyInAttributes:
-            enabled: false
         classSuffixNaming:
             superclassToSuffixMapping:
                 \Throwable: Exception
-                \Nette\DI\CompilerExtension: Extension
                 \Doctrine\DBAL\Types\Type: Type
         enforceReadonlyPublicProperty:
             enabled: false
