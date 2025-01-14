@@ -85,7 +85,7 @@ class PhoneNumberType extends StringType
     }
 
     /**
-     * @param mixed[] $fieldDeclaration
+     * @param array<string, mixed> $fieldDeclaration
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {

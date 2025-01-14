@@ -79,7 +79,7 @@ class PhoneNumberTypeTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForConvertToDatabaseValue(): array
     {
@@ -125,7 +125,7 @@ class PhoneNumberTypeTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForConvertToPHPValue(): array
     {
