@@ -31,7 +31,7 @@
         "php-parallel-lint/php-parallel-lint": "1.4.0",
         "nepada/coding-standard": "7.15.1",
         "composer-runtime-api": "^2.0",
-        "composer/semver": "3.4.3",
+        "composer/semver": "3.4.4",
         "giggsey/libphonenumber-for-php": ">=8.13.47"
     },
     "autoload": {
