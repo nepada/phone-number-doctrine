@@ -73,7 +73,10 @@ class PhoneNumberTypeTest extends TestCase
     /**
      * @dataProvider getDataForConvertToDatabaseValue
      */
-    public function testConvertToDatabaseValueSucceeds(PhoneNumber|string|null $value, ?string $expected): void
+    public function testConvertToDatabaseValueSucceeds(
+        PhoneNumber|string|null $value,
+        ?string $expected,
+    ): void
     {
         Assert::same($expected, $this->type->convertToDatabaseValue($value, $this->platform));
     }
@@ -113,7 +116,10 @@ class PhoneNumberTypeTest extends TestCase
     /**
      * @dataProvider getDataForConvertToPHPValue
      */
-    public function testConvertToPHPValueSucceeds(PhoneNumber|string|null $value, ?PhoneNumber $expected): void
+    public function testConvertToPHPValueSucceeds(
+        PhoneNumber|string|null $value,
+        ?PhoneNumber $expected,
+    ): void
     {
         $actual = $this->type->convertToPHPValue($value, $this->platform);
         if ($expected === null) {
